@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
                   alt="JazoGames"
                 />
               </aside>
-              <span className="seeYouSoon" role="img">
+              <span className="seeYouSoon" aria-label="hand-up" role="img">
                 See You In 👆
               </span>
             </main>
