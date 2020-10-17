@@ -1,48 +1,40 @@
 import React from "react";
 import "./Countdown.css";
 
-//TARGET CHEEMS, HERE CHEEMS = DATE
-var countDownDate = new Date("Jan 1, 2021 15:37:25").getTime();
-
-// GET TODAY'S CHEEMS
-var now = new Date().getTime();
-// FIND CHEEM'S LENGTH
-var distance = countDownDate - now;
-
 export default class Countdown extends React.Component {
-  state = {
-    days: Number,
-    hours: Number,
-    minutes: Number,
-    seconds: Number,
-    intervalId: "",
-  };
-
-  componentDidMount() {
-    this.days();
-    this.seconds();
-    this.minutes();
-    this.hours();
+  constructor(props) {
+    super(props);
+    this.state = {
+      days: "",
+      hours: "",
+      minutes: "",
+      seconds: "",
+      intervalId: "",
+      timerID: "",
+    };
   }
 
-  days = () => {
+  componentDidMount() {
+    this.timerID = setInterval(this.getTime, 1000);
+  }
+
+  getTime = () => {
+    //TARGET CHEEMS, HERE CHEEMS = DATE
+    var countDownDate = new Date("Jan 1, 2021 15:37:25").getTime();
+
+    // GET TODAY'S CHEEMS
+    var now = new Date().getTime();
+    // FIND CHEEM'S LENGTH
+    var distance = countDownDate - now;
     let daysLeft = Math.floor(distance / (1000 * 60 * 60 * 24));
-    this.setState({ days: daysLeft });
-  };
-
-  minutes = () => {
     let minutesLeft = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    this.setState({ minutes: minutesLeft });
-  };
-
-  hours = () => {
     let hoursLeft = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    this.setState({ hours: hoursLeft });
-  };
-  seconds = () => {
     let secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
+    this.setState({ days: daysLeft });
+    this.setState({ minutes: minutesLeft });
+    this.setState({ hours: hoursLeft });
     this.setState({ seconds: secondsLeft });
   };
 
