@@ -12,7 +12,8 @@
     "react": "^16.13.1",
     "react-countdown": "^2.2.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-sticky-header": "^0.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

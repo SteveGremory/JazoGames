@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Countdown from "./App";
+import HomeScreen from "./Components/HomeScreen/HomeScreen";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Countdown
-      timeTillDate="12 01 2021, 6:00 am"
-      timeFormat="MM DD YYYY, h:mm a"
-    />
+    <HomeScreen />
   </React.StrictMode>,
   document.getElementById("root")
 );
